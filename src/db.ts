@@ -1,5 +1,8 @@
 import mongoose, { model, Schema} from 'mongoose';
-mongoose.connect('mongodb+srv://aryanggmu:aryansfirstdb@firstdb.wcy5pfy.mongodb.net/scribz')
+import 'dotenv/config'
+const db_url = process.env.db_connect
+//@ts-ignore
+mongoose.connect(db_url)
 const UserSchema = new Schema({
     username: {type: String, unique: true},
     password: String
