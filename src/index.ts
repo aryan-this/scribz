@@ -4,7 +4,7 @@ import 'dotenv/config'
 import { ContentModel, UserModel } from './db';
 import { userMiddleware } from './midleware';
 
-const jwt_secret = process.env.jwt_secret
+const jwt_secret = process.env.jwt_secret as string
 const app = express();
 app.use(express.json());
 
@@ -41,7 +41,6 @@ app.post('/api/v1/signin', async(req, res)=>{
     if (userFound){
         const token = jwt.sign({
             id: userFound._id
-            //@ts-ignore
         }, jwt_secret)
 
         res.json({
