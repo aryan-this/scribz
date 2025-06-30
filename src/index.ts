@@ -3,10 +3,13 @@ import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 import { ContentModel, UserModel } from './db';
 import { userMiddleware } from './midleware';
+import cors from 'cors';
+
 
 const jwt_secret = process.env.jwt_secret as string
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post('/api/v1/signup', async (req, res)=>{
     const username = req.body.username;
