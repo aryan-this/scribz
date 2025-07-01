@@ -62,10 +62,13 @@ app.post('/api/v1/content',userMiddleware, async(req, res)=>{
     const title = req.body.title;
     const type = req.body.type;
     const link = req.body.link;
+    const description= req.body.description;
+
     await ContentModel.create({
         title,
         type,
         link,
+        description,
         //@ts-ignore
         userId: req.userId,
         tags: []
