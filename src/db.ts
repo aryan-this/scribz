@@ -12,6 +12,7 @@ export const UserModel = model("Users", UserSchema)
 
 
 const contentTypes: string[]= ['Youtube', 'X'];
+
 const ContentSchema = new Schema({
     title: {type: String, required: true},
     type: { type: String, enum: contentTypes, required: true},
